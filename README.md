@@ -1,8 +1,40 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+# Isduii - UI Element Inspiration Browser Extension
+
+<img src="assets/icon.png" alt="Logo" width="100"/>
+
+Isduii (I Suck at Design UI Inspiration) is a browser extension designed for developers and designers to effortlessly capture UI elements and components from various websites, serving as a valuable source of design inspiration.
+
+## Features
+
+- **Capture UI Components**: Extract buttons, forms, icons, and other UI elements with ease.
+- **User-Friendly Interface**: Simple and intuitive interface for quick access to your saved inspirations.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (version X.X.X)
+- npm or pnpm
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd isduii
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm install
+   # or
+   npm install
+   ```
+
+### Development Setup
+
+Start the development server:
 
 ```bash
 pnpm dev
@@ -10,15 +42,19 @@ pnpm dev
 npm run dev
 ```
 
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
+Open your browser and load the development build. For Chrome with Manifest V3, navigate to: `build/chrome-mv3-dev`.
 
-You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
+### Editing the Extension
 
-For further guidance, [visit our Documentation](https://docs.plasmo.com/)
+- **Popup**: Modify `popup.tsx` to edit the popup content. The extension will auto-update as you make changes.
+- **Options Page**: To add an options page, create an `options.tsx` file in the project root with a default exported React component.
+- **Content Script**: For a content page, create a `content.ts` file in the root, import necessary modules, implement logic, and reload the extension in your browser.
 
-## Making production build
+For further guidance, [visit our Documentation](https://docs.plasmo.com/).
 
-Run the following:
+## Building for Production
+
+Run the following command to create a production build:
 
 ```bash
 pnpm build
@@ -26,8 +62,4 @@ pnpm build
 npm run build
 ```
 
-This should create a production bundle for your extension, ready to be zipped and published to the stores.
-
-## Submit to the webstores
-
-The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/framework/workflows/submit) and you should be on your way for automated submission!
+This will generate a production bundle ready to be zipped and published to the web stores.
