@@ -2,12 +2,7 @@
 
 <img src="assets/icon.png" alt="Logo" width="100"/>
 
-Isduii (I Suck at Design UI Inspiration) is a browser extension designed for developers and designers to effortlessly capture UI elements and components from various websites, serving as a valuable source of design inspiration.
-
-## Features
-
-- **Capture UI Components**: Extract buttons, forms, icons, and other UI elements with ease.
-- **User-Friendly Interface**: Simple and intuitive interface for quick access to your saved inspirations.
+Isduii (I Suck at Design UI Inspiration) is a browser extension designed for developers and designers to effortlessly capture UI elements and components from various websites.
 
 ## Getting Started
 

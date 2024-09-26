@@ -3,6 +3,8 @@ import { toJpeg } from "html-to-image"
 import type { PlasmoCSConfig } from "plasmo"
 import React, { useCallback, useEffect, useRef, useState } from "react"
 
+import { useMessage } from "@plasmohq/messaging/hook"
+
 import { downloadImage, serializeElement } from "~utils"
 
 export const config: PlasmoCSConfig = {
@@ -12,6 +14,7 @@ export const config: PlasmoCSConfig = {
 
 // Create a container for the overlay
 const OverlayContainer = () => {
+  const [shouldOutline, setShouldOutline] = useState(false)
   let element1: HTMLElement
   const htmlElem = document.querySelector("html")
 
@@ -43,20 +46,42 @@ const OverlayContainer = () => {
     [element1]
   )
 
+  if (shouldOutline) {
+    console.log("turning on outlines")
+  }
+  const { data } = useMessage(async (req, res) => {
+    res.send("success")
+  })
+
   useEffect(() => {
+    if (data === "turnOn") {
+      setShouldOutline(true)
+      console.log("turning on outline")
+    } else if (data === "turnOff") {
+      setShouldOutline(false)
+      console.log("turning off outline")
+    }
+  }, [data])
+
+  useEffect(() => {
+    if (!shouldOutline) return
+
     const style = document.createElement("style")
-    style.textContent = cssText
+    style.textContent = `.outline-red{outline: 1px solid red;}`
     document.head.appendChild(style)
+
     // create eventlistener on html elements
     htmlElem.addEventListener("mouseover", mouseOverHandler)
     htmlElem.addEventListener("mouseout", mouseOutHandler)
     htmlElem.addEventListener("mousedown", mouseDownHandler)
+
     return () => {
       htmlElem.removeEventListener("mouseover", mouseOverHandler)
       htmlElem.removeEventListener("mouseout", mouseOutHandler)
       htmlElem.removeEventListener("mousedown", mouseDownHandler)
+      document.head.removeChild(style)
     }
-  }, [mouseOverHandler, mouseOutHandler, mouseDownHandler])
+  }, [mouseOverHandler, mouseOutHandler, mouseDownHandler, shouldOutline])
 
   return (
     <div className="p-z-10 p-fixed p-top-0 p-left-0 p-w-36 p-h-36 p-bg-red-600"></div>

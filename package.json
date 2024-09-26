@@ -2,7 +2,7 @@
   "name": "isduii",
   "displayName": "Isduii",
   "version": "0.0.1",
-  "description": "A platform to collect UI components across websites.",
+  "description": "Isduii (I Suck at Design UI Inspiration) is a browser extension designed for developers and designers to effortlessly capture UI elements and components from various websites.",
   "author": "shmmh",
   "scripts": {
     "dev": "plasmo dev",
@@ -10,6 +10,7 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@plasmohq/messaging": "^0.6.2",
     "html-to-image": "^1.11.11",
     "html2canvas": "^1.4.1",
     "plasmo": "0.89.2",
